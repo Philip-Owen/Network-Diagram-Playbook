@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<style>
+    #mynetwork {
+    width: 600px;
+    height: 600px;
+    border: 1px solid lightgray;
+    }
+</style>
+<body>
+    <div id="mynetwork"></div>
+</body>
+<script>
+
+var data = {"nodes": [{"id": 0, "label": "PE3"}, {"id": 1, "label": "RR1"}, {"id": 2, "label": "P1"}, {"id": 3, "label": "PE2"}, {"id": 4, "label": "P4"}, {"id": 5, "label": "PE1"}, {"id": 6, "label": "P3"}, {"id": 7, "label": "P2"}, {"id": 8, "label": "RR2"}], "links": [{"from": 0, "to": 4}, {"from": 1, "to": 2}, {"from": 1, "to": 8}, {"from": 2, "to": 7}, {"from": 2, "to": 5}, {"from": 2, "to": 6}, {"from": 3, "to": 4}, {"from": 3, "to": 7}, {"from": 4, "to": 6}, {"from": 4, "to": 7}, {"from": 5, "to": 6}, {"from": 7, "to": 8}]}
+
+
+var nodes = new vis.DataSet(data.nodes);
+
+// create an array with edges
+var edges = new vis.DataSet(data.links);
+
+// create a network
+var container = document.getElementById("mynetwork");
+var data = {
+  nodes: nodes,
+  edges: edges,
+};
+var options = {};
+var network = new vis.Network(container, data, options);
+
+    </script>
+</html>

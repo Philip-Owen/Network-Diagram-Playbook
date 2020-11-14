@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<style>
+    #mynetwork {
+    width: 600px;
+    height: 600px;
+    border: 1px solid lightgray;
+    }
+</style>
+<body>
+    <div id="mynetwork"></div>
+</body>
+<script>
+
+var data = {{result.stdout}}
+
+
+var nodes = new vis.DataSet(data.nodes);
+
+// create an array with edges
+var edges = new vis.DataSet(data.links);
+
+// create a network
+var container = document.getElementById("mynetwork");
+var data = {
+  nodes: nodes,
+  edges: edges,
+};
+var options = {};
+var network = new vis.Network(container, data, options);
+
+    </script>
+</html>

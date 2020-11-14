@@ -1,0 +1,19 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: GENERATE JSON FILE
+      command: python build_topology.py sample
+
+    - name: READ JSON FILE
+      shell: cat network_graph.json
+      register: result
+
+    - name: BUILD HTML FILE
+      template:
+        src: templates/html.j2
+        dest: index.html
+
+    - name: OPEN HTML FILE
+      shell: open index.html
