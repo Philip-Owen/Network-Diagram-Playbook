@@ -2,7 +2,7 @@
 
 An Ansible playbook that takes the `net_neighbors` results from ansible facts and creates a network graph that shows the neighbor relations between the queried devices.
 
-Uses Ansible to gather facts and execute tasks, a python script to format the facts output, and viz.js for the graph visualization.
+Uses Ansible to gather facts and execute tasks, a python script to format the facts output, and vis.js for the graph visualization.
 
 Created and tested with Ansible 2.10.3, Python 3.7.3, GNS3, and Cisco 7200s running `c7200-adventerprisek9-mz.152-4`.
 
